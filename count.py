@@ -13,7 +13,7 @@ missing = []
 # Iterate the directory
 path = pathlib.Path(__file__).resolve().parent
 for element in path.iterdir():
-    if element.is_dir():
+    if element.is_dir() and not element.name.startswith("."):
         # Load the audio file
         audio, sr = torchaudio.load(element / "mix.wav")
 
